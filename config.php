@@ -24,6 +24,7 @@ define('URL_PATH', $dynamicPath); // URL path where site resides, begins and end
 // common URLs
 define('SITE_URL', 'http' . (!empty($_SERVER['HTTPS']) ? 's' : '') . '://' . URL_DOMAIN . URL_PATH);
 define('CSS_URL', SITE_URL . 'css/');
+define('JS_URL', SITE_URL . 'js/');
 define('IMAGES_URL', SITE_URL . 'images/');
 
 // define applicaton path constants
