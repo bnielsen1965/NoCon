@@ -1,4 +1,11 @@
 RewriteEngine On
 
+# make sure it ends in a slash
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.php?params=$1 [QSA,L]
+RewriteCond %{REQUEST_URI} !.*/$
+RewriteRule .* $0/ [L]
+
+# rewrite to the router
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php?params=$0 [QSA,L]
+
