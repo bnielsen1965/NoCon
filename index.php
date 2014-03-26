@@ -1,11 +1,16 @@
 <?php
 
+// load configuration
 include 'config.php';
 
+// Load the class autoloader
+include INCLUDES_PATH . 'autoload.php';
+
+// start user session
 session_name(SESSION_NAME);
 session_start();
 
-
+// set the default view
 $viewName = DEFAULT_VIEW;
 
 /*
@@ -36,15 +41,9 @@ if (isset($_GET['params'])) {
     }
 }
 
-/*
- * Include any pre-processing scripts here before any views are loaded
- */
-
+// Include any pre-processing scripts here before any views are loaded
 include INCLUDES_PATH . 'preprocess.php';
 
 
-/*
- * Load the page layout
- */
+// Load the page layout
 include INCLUDES_PATH . 'layout.php';
-

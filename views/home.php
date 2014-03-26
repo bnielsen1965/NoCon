@@ -13,6 +13,27 @@
     
     <br>
     
+    <h2>SEO Friendly URLs</h2>
+    The URLs take the form of {domain}/{path}/{view}/{parameter}/{parameter}/...<br>
+    I.E. http://www.mydomain.com/myapp/articles/1/<br>
+    In this example the site domain is www.mydomain.com, the application is installed
+    in the myapp path, and the articles view is requested with an extra parameter of 1
+    that may be a pagination value for the articles displayed in the view.<br>
+    <br>
+    The parameter values are optional and only necessary if your pre-processing or
+    view code will use the parameters. If a view is not specified then the default
+    view from the config.php will be used.<br>
+    
+    <br>
+    
+    <h2>Class Autoloader</h2>
+    The framework includes a class autoloader that will check in the classes path
+    for any unloaded class files. The name of the class file must match the name of
+    the class to be loaded. I.E. if we have a line that says $db = new Database();
+    then the autoloader will check in the classes path for the class file Database.php.<br>
+    
+    <br>
+    
     <h2>Preprocessing</h2>
     Add your PHP code to <?php echo INCLUDES_PATH; ?>preprocess.php for any
     processing that needs to occur prior t loading of the page views, i.e. form
@@ -82,5 +103,12 @@
     INCLUDES_PATH: <?php echo INCLUDES_PATH; ?><br>
     CLASSES_PATH: <?php echo CLASSES_PATH; ?><br>
     CACHE_PATH: <?php echo CACHE_PATH; ?><br>
+    
+    <br>
+    
+    <h2>Class Autoloader Test</h2>
+    Autoloader: <?php $t = new Test(); echo ($t->test() ? 'success' : 'failed'); ?>
+    
+    <br>
     
 </div>
