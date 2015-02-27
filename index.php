@@ -1,49 +1,43 @@
 <?php
+/*
+* Copyright (C) 2014, 2015 Bryan Nielsen - All Rights Reserved
+*
+* Author: Bryan Nielsen <bnielsen1965@gmail.com>
+*
+*
+* This file is part of the NoCon PHP application framework.
+* NoCon is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+* 
+* NoCon is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with cryptUser.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
-// load configuration
-include 'config.php';
+// application runs in the Framework namespace
+namespace Framework;
+
+// Bootstrap framework and application settings
+include_once 'class/Framework/Config.php';
+Config::setPath(__DIR__ . '/config/');
+Config::load('framework');
+Config::load('application');
 
 // Load the class autoloader
-include INCLUDES_PATH . 'autoload.php';
+include Config::get('includePath') . 'autoload.php';
+
+// set timezone
+date_default_timezone_set(Config::get('timezone'));
 
 // start user session
-session_name(SESSION_NAME);
+session_name(Config::get('sessionName'));
 session_start();
 
-// set the default view
-$viewName = DEFAULT_VIEW;
-
-/*
- * Determine view name from passed parameters
- * 
- * NOTE: This assumes that the rewrite rules are in place to convert the pretty URL
- * to an index.php?params={URL parameters} type URL where {URL parameters} is the 
- * slash delimited URL string with the view slug and view parameters from the pretty URL.
- * 
- * I.E.
- * Assuming that the application resides in the public_html/blogpage/ directory and
- * given the following pretty URL...
- * http://mydomain.net/blogpage/welcome/bobby
- * 
- * The rewrite rules should change this URL to...
- * http://mydomain.net/blogpage/index.php?params=welcome/bobby
- * 
- * The first parameter is the view slug, "welcome" while the second parameter will
- * be available in the $params array for use by the welcome.php view script.
- */
-if (isset($_GET['params'])) {
-    $params = explode('/', $_GET['params']);
-    if (!empty($params[0]) && file_exists(VIEWS_PATH . '/'. $params[0] . '.php')) {
-        $viewName = $params[0];
-        
-        // sanitize view name
-        $viewName = preg_replace('/[^a-zA-Z0-9\-_]/', '-', $viewName);
-    }
-}
-
-// Include any pre-processing scripts here before any views are loaded
-include INCLUDES_PATH . 'preprocess.php';
-
-
-// Load the page layout
-include INCLUDES_PATH . 'layout.php';
+// load the requested view using the standard preprocessor and layout
+Router::loadView();

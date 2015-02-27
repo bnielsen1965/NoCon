@@ -7,5 +7,4 @@ RewriteRule .* $0/ [L]
 
 # rewrite to the router
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule .* index.php?params=$0 [QSA,L]
-
+RewriteRule .* index.php?parameters=$0 [QSA,L]

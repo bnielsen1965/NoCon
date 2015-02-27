@@ -24,47 +24,29 @@ needed for the clean URLs.
 
 Development primarily involves the creation of new view files with some editing
 of the existing partial view files for the header, navigation, and the footer. 
-Additional work may be needed in the preprocess.php includes file to process
-any form submissions, AJAX messages, redirects, etc.
 
-## Preprocessing
-Add your PHP code to includes/preprocess.php for any 
-processing that needs to occur prior t loading of the page views, i.e. form 
-processing, URL redirection, AJAX output, etc.
+The default layout script can be modified or replaced to change the standard 
+layout of all views or layouts can be created for specific views and saved in 
+the layout/viewlayout/ path.
 
-## Layout
-Not happy with the default view layout, edit 
-includes/layout.php to change the sequence of view loading 
-for the page layout.
-
-The default layout will load views in the following sequence...
-views/header.php
-views/nav.php
-views/{view name from URL or default}.php
-views/footer.php
-
-## Navigation
-The default site navigation is defined in views/nav.php. 
-This view file can be modified to add new links to page views added to the 
-views path.
-
-## Views
-Adding new pages to a site is as simple as adding a new PHP view file in the 
-views path and adding a link to the page. As an example assume we want an 
-About view to provide some information about the site. First we create the 
-file views/about.php with the about details. Next we would likely want to edit 
-the nav.php view to add a link to our About page using some code like the 
-following...
-<a href="about">[About]</a>
+If a view needs to process a form submission prior to loading the layout and view 
+then a preprocess script with the same filename as the view can be stored in the 
+preprocess/viewprocess/ folder. This preprocess is executed prior to the layout 
+and view so it can be used to redirect for login forms or generate JSON or XML 
+output for an API call and then call the \Framework\Router::disableView() 
+method to prevent any further output.
 
 ---------------------------------
 
 
-# CONSTANTS
+# EXAMPLES
 
-The config.php file contains various constant definitions, some of which you
-will want to change, i.e. DEFAULT_TITLE, DEFAULT_VIEW, and SESSION_NAME. While 
-others are provided to assist in development of any view or preprocessing scripts.
+The easiest way to learn how to use the framework is to install an example and 
+start editing code. The framework itself is a working example with a single 
+route for the Home view.
 
+You can also check out a more elaborate example complete with a built in API 
+route in the [NoCon OpenSSL Test Example](http://getwebscripts.com/demos/ssltest/).
 
----------------------------------
+The NoCon OpenSSL Test Example can be [downloaded as a zip file](http://getwebscripts.com/downloads/ssltest.zip).
+
