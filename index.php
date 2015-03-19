@@ -17,7 +17,7 @@
 * GNU General Public License for more details.
 * 
 * You should have received a copy of the GNU General Public License
-* along with cryptUser.  If not, see <http://www.gnu.org/licenses/>.
+* along with this application.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 // application runs in the Framework namespace
@@ -26,17 +26,15 @@ namespace Framework;
 // Bootstrap framework and application settings
 include_once 'class/Framework/Config.php';
 Config::setPath(__DIR__ . '/config/');
-Config::load('framework');
-Config::load('application');
 
 // Load the class autoloader
-include Config::get('includePath') . 'autoload.php';
+include Config::get('framework', 'includePath') . 'autoload.php';
 
 // set timezone
-date_default_timezone_set(Config::get('timezone'));
+date_default_timezone_set(Config::get('application', 'timezone'));
 
 // start user session
-session_name(Config::get('sessionName'));
+session_name(Config::get('application', 'sessionName'));
 session_start();
 
 // load the requested view using the standard preprocessor and layout

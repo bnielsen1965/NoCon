@@ -17,7 +17,7 @@
 * GNU General Public License for more details.
 * 
 * You should have received a copy of the GNU General Public License
-* along with cryptUser.  If not, see <http://www.gnu.org/licenses/>.
+* along with this application.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 namespace Framework;
@@ -65,17 +65,19 @@ class Config {
      * the file to set a variable named $settings that contains the configuration
      * settings to load.
      * 
-     * NOTE: The $configName value must not include in the file extension.
+     * NOTE: The $configName value must not include in the php file extension.
      * 
      * @param string $configName The name of the configuration.
      */
     public static function load($configName) {
         $configFile = static::$path . $configName . '.php';
+        
         if ( file_exists($configFile) ) {
+            $settings = null;
             include $configFile;
             
-            if (isset($settings) && is_array($settings) ) {
-                static::$settings = (isset(static::$settings) ? static::$settings + $settings : $settings);
+            if ( is_array($settings) ) {
+                static::$settings[$configName] = (isset(static::$settings[$configName]) ? static::$settings[$configName] + $settings : $settings);
             }
         }
     }
@@ -84,10 +86,15 @@ class Config {
     /**
      * Get a configuration settings value.
      * 
+     * @param string $configName The name of the configuration file.
      * @param string $parameter The configuration paramter to get.
      * @return mixed The configuration value or null if not set.
      */
-    public static function get($parameter) {
-        return (isset(static::$settings[$parameter]) ? static::$settings[$parameter] : null);
+    public static function get($configName, $parameter) {
+        if ( !isset(static::$settings[$configName]) ) {
+            static::load($configName);
+        }
+        
+        return (isset(static::$settings[$configName][$parameter]) ? static::$settings[$configName][$parameter] : null);
     }
 }

@@ -10,6 +10,6 @@ namespace Framework;
  */
 
 // use view preprocessor if provided
-if (file_exists(Config::get('preprocessPath') . 'viewprocess/' . Router::getViewName() . '.php')) {
-    include Config::get('preprocessPath') .  'viewprocess/' . Router::getViewName() . '.php';
+if (file_exists(Config::get('framework', 'preprocessPath') . 'viewprocess/' . Router::getViewName() . '.php')) {
+    include Config::get('framework', 'preprocessPath') .  'viewprocess/' . Router::getViewName() . '.php';
 }

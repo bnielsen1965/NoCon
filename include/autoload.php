@@ -17,7 +17,7 @@
 * GNU General Public License for more details.
 * 
 * You should have received a copy of the GNU General Public License
-* along with cryptUser.  If not, see <http://www.gnu.org/licenses/>.
+* along with this application.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /**
@@ -29,7 +29,7 @@ spl_autoload_register(function ($class) {
     $class = end($classParts);
     
     // get the class path from the configuration settings
-    $classPath = \Framework\Config::get('classPath');
+    $classPath = \Framework\Config::get('framework', 'classPath');
     
     // check root path first
     if (file_exists($classPath . $class . '.php')) {

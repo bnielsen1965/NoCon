@@ -8,10 +8,10 @@ namespace Framework;
  */
 
 // use view layout if provided
-if (file_exists(Config::get('layoutPath') . 'viewlayout/' . Router::getViewName() . '.php')) {
-    include Config::get('layoutPath') .  'viewlayout/' . Router::getViewName() . '.php';
+if (file_exists(Config::get('framework', 'layoutPath') . 'viewlayout/' . Router::getViewName() . '.php')) {
+    include Config::get('framework', 'layoutPath') .  'viewlayout/' . Router::getViewName() . '.php';
 }
 else {
     // use the default layout
-    include Config::get('layoutPath') . 'default.php';
+    include Config::get('framework', 'layoutPath') . 'default.php';
 }

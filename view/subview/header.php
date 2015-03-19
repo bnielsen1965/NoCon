@@ -7,7 +7,7 @@ namespace Framework;
  */
 
 // set helper variables
-Router::$ARGS['PAGE_TITLE'] = Config::get('title') . ' - ' . ucwords(preg_replace(array('|_|', '|-|'), ' ', Router::getViewName()));
-Router::$ARGS['SITE_URL'] = Config::get('siteURL');
-Router::$ARGS['CSS_URL'] = Config::get('cssURL');
-Router::$ARGS['IMG_URL'] = Config::get('imageURL');
+Router::$ARGS['PAGE_TITLE'] = Config::get('application', 'title') . ' - ' . ucwords(preg_replace(array('|_|', '|-|'), ' ', Router::getViewName()));
+Router::$ARGS['SITE_URL'] = Config::get('framework', 'siteURL');
+Router::$ARGS['CSS_URL'] = Config::get('framework', 'cssURL');
+Router::$ARGS['IMG_URL'] = Config::get('framework', 'imageURL');

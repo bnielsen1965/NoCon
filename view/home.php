@@ -119,19 +119,19 @@
     <h2>Current Settings</h2>
     <table border="1">
         <tr><th>Setting</th><th>Value</th></tr>
-        <tr><th>title</th><td><?php echo Framework\Config::get('title'); ?></td></tr>
-        <tr><th>defaultView</th><td><?php echo Framework\Config::get('defaultView'); ?></td></tr>
-        <tr><th>sessionName</th><td><?php echo Framework\Config::get('sessionName'); ?></td></tr>
-        <tr><th>urlDomain</th><td><?php echo Framework\Config::get('urlDomain'); ?></td></tr>
-        <tr><th>urlPath</th><td><?php echo Framework\Config::get('urlPath'); ?></td></tr>
-        <tr><th>siteURL</th><td><?php echo Framework\Config::get('siteURL'); ?></td></tr>
-        <tr><th>cssURL</th><td><?php echo Framework\Config::get('cssURL'); ?></td></tr>
-        <tr><th>imageURL</th><td><?php echo Framework\Config::get('imageURL'); ?></td></tr>
-        <tr><th>sitePath</th><td><?php echo Framework\Config::get('sitePath'); ?></td></tr>
-        <tr><th>viewPath</th><td><?php echo Framework\Config::get('viewPath'); ?></td></tr>
-        <tr><th>includePath</th><td><?php echo Framework\Config::get('includePath'); ?></td></tr>
-        <tr><th>classPath</th><td><?php echo Framework\Config::get('classPath'); ?></td></tr>
-        <tr><th>cachePath</th><td><?php echo Framework\Config::get('cachePath'); ?></td></tr>
+        <tr><th>title</th><td><?php echo Framework\Config::get('application', 'title'); ?></td></tr>
+        <tr><th>defaultView</th><td><?php echo Framework\Config::get('application', 'defaultView'); ?></td></tr>
+        <tr><th>sessionName</th><td><?php echo Framework\Config::get('application', 'sessionName'); ?></td></tr>
+        <tr><th>urlDomain</th><td><?php echo Framework\Config::get('framework', 'urlDomain'); ?></td></tr>
+        <tr><th>urlPath</th><td><?php echo Framework\Config::get('framework', 'urlPath'); ?></td></tr>
+        <tr><th>siteURL</th><td><?php echo Framework\Config::get('framework', 'siteURL'); ?></td></tr>
+        <tr><th>cssURL</th><td><?php echo Framework\Config::get('framework', 'cssURL'); ?></td></tr>
+        <tr><th>imageURL</th><td><?php echo Framework\Config::get('framework', 'imageURL'); ?></td></tr>
+        <tr><th>sitePath</th><td><?php echo Framework\Config::get('framework', 'sitePath'); ?></td></tr>
+        <tr><th>viewPath</th><td><?php echo Framework\Config::get('framework', 'viewPath'); ?></td></tr>
+        <tr><th>includePath</th><td><?php echo Framework\Config::get('framework', 'includePath'); ?></td></tr>
+        <tr><th>classPath</th><td><?php echo Framework\Config::get('framework', 'classPath'); ?></td></tr>
+        <tr><th>cachePath</th><td><?php echo Framework\Config::get('framework', 'cachePath'); ?></td></tr>
     </table>
     
     <br>

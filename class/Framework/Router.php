@@ -17,7 +17,7 @@
 * GNU General Public License for more details.
 * 
 * You should have received a copy of the GNU General Public License
-* along with cryptUser.  If not, see <http://www.gnu.org/licenses/>.
+* along with this application.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 namespace Framework;
@@ -71,7 +71,7 @@ class Router {
     public static function init() {
         // initialize empty values
         static::$PARAMS = array();
-        static::$VIEW = Config::get('defaultView');
+        static::$VIEW = Config::get('application', 'defaultView');
         static::$ARGS = array();
         
         // collect any passed URL parameters
@@ -134,11 +134,11 @@ class Router {
         if (false !== $preprocessFile) {
             if (is_null($preprocessFile)) {
                 // using default preprocess
-                include Config::get('preprocessPath') . Config::get('defaultPreprocess') . '.php';
+                include Config::get('framework', 'preprocessPath') . Config::get('application', 'defaultPreprocess') . '.php';
             }
             elseif (!empty($preprocessFile) && file_exists($preprocessFile)) {
                 // using the specified preprocess
-                include Config::get('preprocessPath') . $preprocessFile . '.php';
+                include Config::get('framework', 'preprocessPath') . $preprocessFile . '.php';
             }
             else {
                 // something has gone awry
@@ -155,11 +155,11 @@ class Router {
         if (false !== $layoutFile) {
             if (is_null($layoutFile)) {
                 // using default layout
-                include Config::get('layoutPath') . Config::get('defaultLayout') . '.php';
+                include Config::get('framework', 'layoutPath') . Config::get('application', 'defaultLayout') . '.php';
             }
             elseif (!empty($layoutFile) && file_exists($layoutFile)) {
                 // using the provided layout
-                include Config::get('layoutPath') . $layoutFile . '.php';
+                include Config::get('framework', 'layoutPath') . $layoutFile . '.php';
             }
             else {
                 // something has gone awry
@@ -195,7 +195,7 @@ class Router {
         }
         elseif (!empty($view)) {
             // determine path from view name
-            $view = Config::get('viewPath') . $view . '.php';
+            $view = Config::get('framework', 'viewPath') . $view . '.php';
 
             if (file_exists($view)) {
                 // load view from name
@@ -211,7 +211,7 @@ class Router {
         }
         else {
             // using the current view
-            $view = Config::get('viewPath') . static::$VIEW . '.php';
+            $view = Config::get('framework', 'viewPath') . static::$VIEW . '.php';
 
             if (file_exists($view)) {
                 // load current view
