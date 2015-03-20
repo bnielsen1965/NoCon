@@ -84,15 +84,19 @@ class Config {
     
     
     /**
-     * Get a configuration settings value.
+     * Get a configuration settings value or the entire group of configuration settings.
      * 
      * @param string $configName The name of the configuration file.
      * @param string $parameter The configuration paramter to get.
      * @return mixed The configuration value or null if not set.
      */
-    public static function get($configName, $parameter) {
+    public static function get($configName, $parameter = null) {
         if ( !isset(static::$settings[$configName]) ) {
             static::load($configName);
+        }
+        
+        if ( is_null($parameter) ) {
+            return (isset(static::$settings[$configName]) ? static::$settings[$configName] : null);
         }
         
         return (isset(static::$settings[$configName][$parameter]) ? static::$settings[$configName][$parameter] : null);
