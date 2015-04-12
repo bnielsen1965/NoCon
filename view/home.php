@@ -130,7 +130,7 @@
         <tr><th>sitePath</th><td><?php echo NoCon\Framework\Config::get('framework', 'sitePath'); ?></td></tr>
         <tr><th>viewPath</th><td><?php echo NoCon\Framework\Config::get('framework', 'viewPath'); ?></td></tr>
         <tr><th>includePath</th><td><?php echo NoCon\Framework\Config::get('framework', 'includePath'); ?></td></tr>
-        <tr><th>classPath</th><td><?php echo NoCon\Framework\Config::get('framework', 'classPath'); ?></td></tr>
+        <tr><th>vendorPath</th><td><?php echo NoCon\Framework\Config::get('framework', 'vendorPath'); ?></td></tr>
         <tr><th>cachePath</th><td><?php echo NoCon\Framework\Config::get('framework', 'cachePath'); ?></td></tr>
     </table>
     
