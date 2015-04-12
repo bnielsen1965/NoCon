@@ -20,7 +20,7 @@
 * along with this application.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace Framework;
+namespace NoCon\Framework;
 
 /**
  * Router class, routes incoming requests.

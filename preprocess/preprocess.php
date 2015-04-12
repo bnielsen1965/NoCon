@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace NoCon\Framework;
 
 /*
  * Perform any needed processing before layout and views are loaded

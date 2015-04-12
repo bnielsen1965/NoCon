@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace NoCon\Framework;
 
 /*
  * This determines the overall layout of the page by controlling the

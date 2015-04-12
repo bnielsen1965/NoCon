@@ -1,0 +1,19 @@
+{
+    "name": "nocon/nocon",
+    "type": "framework",
+    "description": "Simple framework for PHP based web applications.",
+    "keywords":["framework", "php", "simple"],
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Bryan Nielsen",
+            "email": "bnielsen1965@gmail.com"
+        }
+    ],
+    "require": {
+      "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-4": { "NoCon\\Framework\\": "vendor/NoCon/Framework" }
+    }
+}

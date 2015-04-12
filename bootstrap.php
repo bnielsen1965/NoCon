@@ -1,16 +1,21 @@
 <?php
 
-// application runs in the Framework namespace
-namespace Framework;
+namespace NoCon\Framework;
 
-// Bootstrap framework and application settings
-include_once 'class/Framework/Config.php';
+include_once 'vendor/NoCon/Framework/Config.php';
 Config::setPath(__DIR__ . '/config/');
 
-// Load the class autoloader
-include Config::get('framework', 'includePath') . 'autoload.php';
+// determine the autoloader to use
+if ( file_exists(Config::get('framework', 'vendorPath') . '/autoload.php') ) {
+    // using the auto loader from composer
+    include_once(Config::get('framework', 'vendorPath') . '/autoload.php');
+}
+else
+{
+    // using the default NoCon auto loader
+    include Config::get('framework', 'includePath') . 'autoload.php';
+}
 
-// set timezone
 date_default_timezone_set(Config::get('application', 'timezone'));
 
 // start user session

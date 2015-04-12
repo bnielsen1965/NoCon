@@ -1,4 +1,4 @@
-<?php namespace Framework; // namespace needed to access classes ?>
+<?php namespace NoCon\Framework; // namespace needed to access classes ?>
 <!DOCTYPE html>
 <html>
 <head>

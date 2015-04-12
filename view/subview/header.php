@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace NoCon\Framework;
 
 /**
  * view header processing before content starts

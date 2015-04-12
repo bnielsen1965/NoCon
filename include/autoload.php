@@ -29,7 +29,7 @@ spl_autoload_register(function ($class) {
     $class = end($classParts);
     
     // get the class path from the configuration settings
-    $classPath = \Framework\Config::get('framework', 'classPath');
+    $classPath = \NoCon\Framework\Config::get('framework', 'classPath');
     
     // check root path first
     if (file_exists($classPath . $class . '.php')) {

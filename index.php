@@ -19,8 +19,8 @@
 * You should have received a copy of the GNU General Public License
 * along with this application.  If not, see <http://www.gnu.org/licenses/>.
 */
-// application runs in the Framework namespace
-namespace Framework;
+// application runs in the NoCon\Framework namespace
+namespace NoCon\Framework;
 
 // bootstrap the framework
 include_once 'bootstrap.php';

@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework;
+namespace NoCon\Framework;
 
 Router::includeView('subview/header'); // start the page header
 Router::includeView('subview/head'); // load the content head
