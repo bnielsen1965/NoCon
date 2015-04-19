@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "NoCon\\Framework\\": "vendor/NoCon/Framework"
+            "NoCon\\": "vendor/NoCon"
         }
     }
 }
