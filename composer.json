@@ -1,6 +1,6 @@
 {
     "name": "nocon/nocon",
-    "type": "framework",
+    "type": "project",
     "description": "Simple framework for PHP based web applications.",
     "keywords":["framework", "php", "simple"],
     "license": "GPL-3.0+",
