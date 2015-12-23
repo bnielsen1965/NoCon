@@ -205,7 +205,8 @@ class Router {
                 return true;
             }
             else {
-                // someting has gone awry
+                // something has gone awry
+                include Config::get('framework', 'viewPath') . '404.php';
                 error_log('specified view not found: ' . $view);
             }
         }
@@ -222,6 +223,8 @@ class Router {
             }
             else {
                 // something has gone awry
+                header("HTTP/1.0 404 Not Found");
+                include Config::get('framework', 'viewPath') . '404.php';
                 error_log('current view not found: ' . $view);
             }
         }
